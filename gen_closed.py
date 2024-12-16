@@ -35,7 +35,7 @@ class GenClosed():
         for storm_url in kmz_links:
             try:
                     
-                print ('Requesting URL: %s' % storm_url)
+                #print ('Requesting URL: %s' % storm_url)
                 request = requests.get(storm_url)
                 kml_contents = parser.extract_kml_from_kmz_file_contents(request.content)
 
@@ -97,6 +97,7 @@ class GenClosed():
                 
                 # Write out file
                 filepath = os.path.join(CUR_DIR, 'output\%s' % filename)
+                #print(filepath)
                 with open(filepath, 'w') as f:
                     f.write(json.dumps(output, indent=4))
             except:
