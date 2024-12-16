@@ -6,10 +6,10 @@ import pytz
 import re
 import requests
 import sys
-import urlparse
+from urllib.parse import urlparse
 import xml.etree.ElementTree
 
-from parser import Parser
+from parser_1 import Parser
 
 CUR_DIR = os.path.dirname(os.path.realpath(__file__))
 
