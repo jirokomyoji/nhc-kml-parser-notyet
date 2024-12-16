@@ -9,7 +9,7 @@ import sys
 from urllib.parse import urlparse
 import xml.etree.ElementTree
 
-from parser_1 import Parser
+from KMLparser import Parser
 
 CUR_DIR = os.path.dirname(os.path.realpath(__file__))
 

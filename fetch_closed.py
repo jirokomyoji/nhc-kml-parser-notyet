@@ -6,7 +6,7 @@ import requests
 import sys
 import xml.etree.ElementTree
 
-from parser_1 import Parser
+from KMLparser import Parser
 
 CUR_DIR = os.path.dirname(os.path.realpath(__file__))
 
