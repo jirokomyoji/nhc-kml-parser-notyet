@@ -16,7 +16,7 @@ if __name__ == "__main__":
     parser = Parser()
     
     # This is the main page that lists all the closed storms
-    list_url = "http://www.nhc.noaa.gov/gis/archive_besttrack_results.php?year=2023"
+    list_url = "http://www.nhc.noaa.gov/gis/archive_besttrack_results.php?year=2024"
     request = requests.get(list_url)
     html_contents = request.text
 

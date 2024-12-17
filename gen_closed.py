@@ -7,6 +7,7 @@ import sys
 import xml.etree.ElementTree
 from json_to_pandas import WeatherFrame as WF
 from KMLparser import Parser
+import pandas as pd
 class GenClosed(): 
     
 
@@ -32,6 +33,7 @@ class GenClosed():
                 kmz_links.append('http://www.nhc.noaa.gov/gis/' + link['href'])
 
         # Request each kmz file and extract the KML
+        dataframe_list =[]
         for storm_url in kmz_links:
             try:
                     
@@ -100,12 +102,15 @@ class GenClosed():
                 #print(filepath)
                 weather_df = WF.get_dataframe(json.dumps(output, indent=4))
                 #print(weather_df)
-                return weather_df
+                dataframe_list.append(weather_df)
                 with open(filepath, 'w') as f:
                     f.write(json.dumps(output, indent=4))
+                    
+                
             except:
                 continue
-
+        combined_df = pd.concat(dataframe_list, ignore_index=True)                
+        return combined_df
         print ("Done.")
     
 if __name__ == "__main__":
