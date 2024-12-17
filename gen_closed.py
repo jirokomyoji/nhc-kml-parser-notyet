@@ -5,7 +5,7 @@ import pytz
 import requests
 import sys
 import xml.etree.ElementTree
-
+from json_to_pandas import WeatherFrame as WF
 from KMLparser import Parser
 class GenClosed(): 
     
@@ -98,6 +98,9 @@ class GenClosed():
                 # Write out file
                 filepath = os.path.join(CUR_DIR, 'output\%s' % filename)
                 #print(filepath)
+                weather_df = WF.get_dataframe(json.dumps(output, indent=4))
+                #print(weather_df)
+                return weather_df
                 with open(filepath, 'w') as f:
                     f.write(json.dumps(output, indent=4))
             except:
